@@ -1,9 +1,10 @@
 #
-#	Makefile for anthra_HD for text2skin
+#	Makefile for anthra_OSt for text2skin
 #
 #	based on text2skin Makefile.example by Thomas Günther <tom@toms-cafe.de>
 #
-#	Copyright (C) 2010 - 2014 Tomas Saxer <tsaxer@gmx.de>   
+#	Copyright (C) 2010-2014 Tomas Saxer <tsaxer@gmx.de>
+#	Copyright (C) 2026 Frank Neumann <fnu@vdr-portal.de> (text2skin 2.0 port)
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,170 +19,76 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+#
+# The skin needs text2skin >= 2.0 (skin format 1.2). The skin file is put
+# together from xml/*.xml, there are no build options: the options of the
+# skin are set in the setup menu of text2skin, the skin scales itself to the
+# size of the OSD.
 
+SKIN = anthra_OSt
+MAIL = https://github.com/unf/vdr-skin-anthra-ost/issues
 
-SKIN = anthra_1920_OSt
-VERSION = 20140324
+### The directory environment (from vdr.pc if available):
 
--include Make.config
+PKGCFG     = $(shell pkg-config --variable=$(1) vdr 2>/dev/null)
+VDRCONFDIR ?= $(or $(call PKGCFG,configdir),/var/lib/vdr)
+LOCDIR     ?= $(or $(call PKGCFG,locdir),/usr/share/locale)
+
+DESTDIR   ?=
+SKINDIR    = $(VDRCONFDIR)/plugins/text2skin/$(SKIN)
+THEMESDIR  = $(VDRCONFDIR)/themes
 
 ### The main target:
 
 all: $(SKIN).skin i18n
 
+$(SKIN).skin: $(sort $(wildcard xml/*.xml))
+	cat $^ > $@
+
 ### Internationalization (I18N):
+
 PODIR     = po
 LOCALEDIR = locale
 
 I18Npo    = $(notdir $(wildcard $(PODIR)/*.po))
 I18Npot   = $(PODIR)/$(SKIN).pot
 
+# texts to translate: trans('...') in the skin, titles and values of the options
 $(I18Npot): $(SKIN).skin
-	@cat $^ | sed -e "s/('/(\"/g;s/')/\")/g" | grep -o "trans([^)]*)" | \
-	xgettext -C --no-wrap --no-location -k -ktrans \
-	         --msgid-bugs-address='<$(MAIL)>' -o $@ -
+	@{ sed -e "s/('/(\"/g;s/')/\")/g" $< | grep -o "trans([^)]*)"; \
+	   grep -o '<option [^>]*>' $< | sed -n 's/.* title="\([^"]*\)".*/trans("\1")/p'; \
+	   grep -o '<option [^>]*>' $< | sed -n 's/.* values="\([^"]*\)".*/\1/p' | tr ',' '\n' | sed 's/.*/trans("&")/'; } | \
+	xgettext -C --no-wrap --no-location -k -ktrans --from-code=UTF-8 \
+	         --package-name=vdr-text2skin-$(SKIN) --msgid-bugs-address='<$(MAIL)>' -o $@ -
 
 %.po: $(I18Npot)
-	@msgmerge -U --no-wrap --no-location --backup=none -q $@ $<
+	msgmerge -U --no-wrap --no-location --backup=none -q $@ $<
 	@touch $@
 
 $(LOCALEDIR)/%/LC_MESSAGES/vdr-text2skin-$(SKIN).mo: $(PODIR)/%.po
 	@mkdir -p $(dir $@)
-	@msgfmt -c -o $@ $<
+	msgfmt -c -o $@ $<
 
 i18n: $(I18Npo:%.po=$(LOCALEDIR)/%/LC_MESSAGES/vdr-text2skin-$(SKIN).mo)
 
 ### Targets:
 
-$(SKIN).skin:
-
-	@for FILES in $(sort $(wildcard xml/*.xml)); do cat "$${FILES}" >> $(SKIN).skin; done
-
-	
-	@echo
-	@echo "$(SKIN).skin is generated with following settings:"; \
-	echo "----------------------------------------------------------"; \
-	
-	@sed 's/VERSION/$(VERSION)/g' -i $(SKIN).skin;
-		
-	@if [ "$(LOGOSLEFT)" = "1" -a -n "$(CHANNELLOGOSPATH)" ];then\
-	  sed 's/CHANNELLOGOSPATH/$(CHANNELLOGOSPATH)/g;/LOGOSRIGHT/d;/NOLOGOS/d' -i $(SKIN).skin;\
-	  echo "- LOGOSLEFT";\
-	  echo "- CHANNELLOGOSPATH: "$(CHANNELLOGOSPATH)"";\
-	fi
-	
-	@if [ "$(LOGOSLEFT)" = "1" -a -z "$(CHANNELLOGOSPATH)" ];then\
-	  sed '/LOGOSRIGHT/d;/NOLOGOS/d;' -i $(SKIN).skin;\
-	  echo "\033[93;41m  !!! ERROR !!! CHANNELLOGOS are activated,\
-	  you have to set CHANNELLOGOSPATH   \033[0m";\
-	fi
-	
-	@if [ "$(LOGOSRIGHT)" = "1" -a -n "$(CHANNELLOGOSPATH)" ];then\
-	  sed 's/CHANNELLOGOSPATH/$(CHANNELLOGOSPATH)/g;/LOGOSLEFT/d;/NOLOGOS/d;' -i $(SKIN).skin;\
-	  echo "- LOGOSRIGHT";\
-	  echo "- CHANNELLOGOSPATH: "$(CHANNELLOGOSPATH)"";\
-	fi	
-	
-	@if [ "$(LOGOSRIGHT)" = "1" -a -z "$(CHANNELLOGOSPATH)" ];then\
-	  sed '/LOGOSLEFT/d;/NOLOGOS/d;' -i $(SKIN).skin;\
-	  echo "\033[93;41m  !!! ERROR !!! CHANNELLOGOS are activated,\
-	  you have to set CHANNELLOGOSPATH   \033[0m";\
-	fi	
-	
-	@if [ "$(NOLOGOS)" = "1" ]; then\
-	  sed -e '/LOGOSLEFT/d;/LOGOSRIGHT/d;' -i $(SKIN).skin;\
-	  echo "- NOLOGOS"; \
-	fi
-	
-	@if [ "$(MENULOGOS)" = "" ]; then\
-	  sed -e '/MENULOGOS/d' -i $(SKIN).skin;\
-	  echo "- NOMENULOGOS";\
-	else \
-	  echo "- MENULOGOS";\
-	fi
-	
-	@if [ "$(EPGIMAGES)" = "" ];then\
-	  sed -e '/EPGIMAGES/d' -i $(SKIN).skin ;\
-	  echo "- NOEPGIMAGES"; \
-	fi
-	 
-	@if [ "$(EPGIMAGES)" = "1" -a -n "$(EPGIMAGESPATH)" ]; then\
-	  sed 's/EPGIMAGESPATH/$(EPGIMAGESPATH)/g' -i $(SKIN).skin;\
-	  echo "- EPGIMAGES";\
-	  echo "- EPGIMAGESPATH: "$(EPGIMAGESPATH)"";\
-	  if [ "$(EPGIMAGESJPG)" = "" ]; then\
-	    echo "- EPGIMAGESFORMAT: png";\
-	  fi;\
-	fi
-	
-	@if [ "$(EPGIMAGES)" = "1" -a -z "$(EPGIMAGESPATH)" ];then\
-	  echo "\033[93;41m  !!! ERROR !!! EPGIMAGES are activated, you have to set EPGIMAGESPATH   \033[0m";\
-	fi
-	
-	@if [ "$(EPGIMAGES)" = "1" -a "$(EPGIMAGESJPG)" = "1" ]; then\
-	  sed 's/{PresentEventID}.png/{PresentEventID}.jpg/g' -i $(SKIN).skin;\
-	  echo "- EPGIMAGESFORMAT: jpg";\
-	fi
-	
-	@if [ "$(TIMER-INFO_MAIN-MENU)" = "1" ];then\
-	  echo "- TIMER-INFO_MAIN-MENU";\
-	else\
-	  sed -e '/TIMER-INFO_MAIN-MENU/d' -i $(SKIN).skin ;\
-	  echo "- NO_TIMER-INFO_MAIN-MENU";\
-	fi
-	
-	@if [ "$(SMALLHEIGHT)" = "1" ]; then\
-	  sed -e '/DEFAULTHEIGHT/d' -i $(SKIN).skin;\
-	  echo "- SMALLHEIGHT: 12 Menu-Items";\
-	else\
-	  sed -e '/SMALLHEIGHT/d' -i $(SKIN).skin;\
-	  echo "- DEFAULTHEIGHT: 11 Menu-Items";\
-	fi
-	
-	@if [ "$(MARQUEE)" = "1" ]; then\
-	  sed -e '/NOMARQUEE/d' -i $(SKIN).skin;\
-	  echo "- MARQUEE";\
-	fi
-	  
-	@if [ "$(NOMARQUEE)" = "1" ]; then\
-	  sed -e '/MENUFONTMARQUEE/d' -i $(SKIN).skin;\
-	  echo "- NOMARQUEE";\
-	fi
-	
-	@if [ "$(SMALLMENUFONT)" = "1" ]; then\
-	  sed -e '/DEFAULTMENUFONT/d;/LARGEMENUFONT/d;' -i $(SKIN).skin;\
-	  echo "- SMALLMENUFONT: 33";\
-	fi
-	
-	@if [ "$(DEFAULTMENUFONT)" = "1" ]; then\
-	  sed -e '/SMALLMENUFONT/d;/LARGEMENUFONT/d;' -i $(SKIN).skin;\
-	  echo "- DEFAULTMENUFONT: 36";\
-	fi
-	
-	@if [ "$(LARGEMENUFONT)" = "1" ]; then\
-	  sed -e '/SMALLMENUFONT/d;/DEFAULTMENUFONT/d;' -i $(SKIN).skin;\
-	   echo "- LARGEMENUFONT: 39";\
-	fi
-
 install-i18n: i18n
-	mkdir -p $(DESTDIR)$(LOCDIR)
-	cp -r $(LOCALEDIR)/* $(DESTDIR)$(LOCDIR)
-	
-install: install-i18n 
-	mkdir -p $(DESTDIR)$(SKINDIR)
-	cp  $(SKIN).skin $(DESTDIR)$(SKINDIR)
-	cp  $(SKIN).colors $(DESTDIR)$(SKINDIR)
-	cp -r images $(DESTDIR)$(SKINDIR)
-	cp -r menulogos $(DESTDIR)$(SKINDIR)
-	cp  COPYING $(DESTDIR)$(SKINDIR)
-	mkdir -p $(DESTDIR)$(THEMESDIR)
-	cp themes/*.theme $(DESTDIR)$(THEMESDIR)
+	@mkdir -p $(DESTDIR)$(LOCDIR)
+	@cp -r $(LOCALEDIR)/* $(DESTDIR)$(LOCDIR)
+
+install: $(SKIN).skin install-i18n
+	@mkdir -p $(DESTDIR)$(SKINDIR) $(DESTDIR)$(THEMESDIR)
+	@cp $(SKIN).skin $(SKIN).colors COPYING $(DESTDIR)$(SKINDIR)
+	@cp -r images menulogos $(DESTDIR)$(SKINDIR)
+	@cp themes/*.theme $(DESTDIR)$(THEMESDIR)
+
+uninstall:
+	@-rm -rf $(DESTDIR)$(SKINDIR)
+	@-rm -f $(addprefix $(DESTDIR)$(THEMESDIR)/,$(notdir $(wildcard themes/*.theme)))
+	@-rm -f $(DESTDIR)$(LOCDIR)/*/LC_MESSAGES/vdr-text2skin-$(SKIN).mo
 
 clean:
 	@-rm -rf $(LOCALEDIR) $(I18Npot) $(SKIN).skin *~
 
-uninstall:
-	@-rm  $(DESTDIR)$(SKINDIR)/COPYING
-	@-rm  $(DESTDIR)$(SKINDIR)/$(SKIN).skin
-	@-rm  $(DESTDIR)$(SKINDIR)/$(SKIN).colors
-	@-rmdir  $(DESTDIR)$(SKINDIR)
+.PHONY: all i18n install install-i18n uninstall clean

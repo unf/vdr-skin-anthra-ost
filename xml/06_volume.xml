@@ -1,5 +1,5 @@
 <display id="volume">
-	<window x1="96" x2="1824" y1="870" y2="1010" bpp="8"/>
+	<window x1="96" x2="1824" y1="870" y2="1010" bpp="32"/>
 	<!-- trans('Volume') -->
 	<!--trans('Mute') -->
 		<image x1="96" x2="1824" y1="870" y2="1010" colors="64" path="images/volume.png" />

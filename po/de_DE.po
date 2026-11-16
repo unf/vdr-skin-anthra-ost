@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VDR 1.6.0\n"
-"Report-Msgid-Bugs-To: <>\n"
-"POT-Creation-Date: 2010-11-22 21:36+0100\n"
-"PO-Revision-Date: 2010-11-15 21:52+0100\n"
+"Report-Msgid-Bugs-To: <https://github.com/unf/vdr-skin-anthra-ost/issues>\n"
+"POT-Creation-Date: 2026-11-16 13:26+0100\n"
+"PO-Revision-Date: 2026-11-16 17:00+0100\n"
 "Last-Translator: Tomas Saxer <tsaxer@gmx.de>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -40,14 +40,41 @@ msgstr "Lautstärke "
 msgid "Mute"
 msgstr "Stumm"
 
-#~ msgid "Length"
-#~ msgstr "Länge"
+msgid "Channel logos"
+msgstr "Senderlogos"
 
-#~ msgid "Cutted"
-#~ msgstr "Geschnitten"
+msgid "Path of the channel logos"
+msgstr "Pfad der Senderlogos"
 
-#~ msgid "Size"
-#~ msgstr "Größe"
+msgid "Main menu logos"
+msgstr "Logos im Hauptmenü"
 
-#~ msgid "Channel"
-#~ msgstr "Kanal"
+msgid "Menu font"
+msgstr "Schrift in Menüs"
+
+msgid "Scrolling text in menus"
+msgstr "Lauftext in Menüs"
+
+msgid "Timer info in the main menu"
+msgstr "Timer-Info im Hauptmenü"
+
+msgid "EPG images (scraper)"
+msgstr "EPG-Bilder (Scraper)"
+
+msgid "right"
+msgstr "rechts"
+
+msgid "left"
+msgstr "links"
+
+msgid "none"
+msgstr "keine"
+
+msgid "default"
+msgstr "normal"
+
+msgid "small"
+msgstr "klein"
+
+msgid "large"
+msgstr "groß"

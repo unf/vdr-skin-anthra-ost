@@ -1,5 +1,14 @@
 <?xml version="1.0"?>
-<skin version="1.1" name="anthra_1920_OSt-VERSION" screenBase="absolute">
+<skin version="1.2" name="anthra_OSt" screenBase="abs1920x1080">
+<options>
+	<option name="ChannelLogos" type="choice" values="right,left,none" default="right" title="Channel logos"/>
+	<option name="LogoPath" type="string" default="/var/lib/vdr/channellogos" title="Path of the channel logos"/>
+	<option name="MenuLogos" type="bool" default="1" title="Main menu logos"/>
+	<option name="MenuFont" type="choice" values="default,small,large" default="default" title="Menu font"/>
+	<option name="Marquee" type="bool" default="0" title="Scrolling text in menus"/>
+	<option name="TimerInfo" type="bool" default="1" title="Timer info in the main menu"/>
+	<option name="EpgImages" type="bool" default="1" title="EPG images (scraper)"/>
+</options>
 	
 <!--Mon, 24 Mar 2014 08:10:42-->
 <!--

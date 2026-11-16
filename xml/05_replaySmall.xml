@@ -1,7 +1,7 @@
 <display id="replaySmall">
-	<window x1="0" x2="1920" y1="0" y2="1080" bpp="8"/>
+	<window x1="0" x2="1920" y1="0" y2="1080" bpp="32"/>
 	
-		<image   x="586" y="942" path="images/recbarSmall.png"/>
+		<image   x1="586" x2="1332" y1="942" y2="990" path="images/recbarSmall.png"/>
 		<text condition="not({IsFastRewind})" x1="592" x2="713" y1="955" y2="977" align="center" color="DarkGrey" font="VDRSymbols Sans:Book@22">F.REW   </text>
 		<text condition="{IsFastRewind:0}" x1="592" x2="713" y1="955" y2="977" align="center" color="TextSmallButton" font="VDRSymbols Sans:Book@22">F.REW</text>
 		<text condition="{IsFastRewind:1}" x1="592" x2="713" y1="955" y2="977" align="center" color="TextSmallButton" font="VDRSymbols Sans:Book@22">F.REW 1x</text>

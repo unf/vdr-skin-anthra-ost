@@ -1,0 +1,24 @@
+anthra_OSt Revision History
+---------------------------
+
+2026-11-16: Version 1.0.0
+
+- Port of anthra_1920_OSt 20190209 by Tomas Saxer to text2skin 2.0 (skin
+  format 1.2) under the new name anthra_OSt.
+- screenBase abs1920x1080: the skin scales itself to the size of the OSD.
+  Images that were given only with their position get a fixed size, so they
+  scale as well.
+- The build options of Make.config are options of the skin, set at runtime
+  in the setup menu of text2skin: channel logos and their path, main menu
+  logos, menu font, scrolling text in menus, timer info in the main menu, EPG
+  images.
+- Menu items 67 pixels high (DEFAULTHEIGHT), the variant with 61 pixels is
+  not taken over.
+- EPG images from a scraper plugin (token {PresentPoster}).
+- All windows true colour (bpp 32).
+- Makefile: the skin file is put together from xml/*.xml, directories from
+  vdr.pc, option titles and values in the translation template. Removed:
+  Make.config, the generated skin file, the old RelaxNG schema, compiled
+  translations, the patches folder, two theme files of other anthra skins
+  (anthra_1920_FSt-default, anthra_1920_OS-light).
+- Translations in UTF-8, options translated into de, es, fi, fr, it, nl.

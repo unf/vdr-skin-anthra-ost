@@ -1,5 +1,5 @@
 <display id="audioTracks">
-	<window x1="0" x2="1920" y1="0" y2="1080" bpp="8"/>
+	<window x1="0" x2="1920" y1="0" y2="1080" bpp="32"/>
 		<list x1="1250" x2="1920" y1="760" y2="970">
 			<item height="65"/>
 			<ellipse x1="0" x2="52" y1="6" y2="58"   arc="0" color="Background"/>

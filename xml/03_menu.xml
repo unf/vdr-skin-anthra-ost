@@ -1,7 +1,7 @@
 <display id="menu" >
-	<window x1="96" x2="1824" y1="85" y2="157" bpp="8" />
-   	<window x1="96" x2="1824" y1="158" y2="941" bpp="8" />
-   	<window x1="96" x2="1824" y1="942" y2="1009" bpp="8" />
+	<window x1="96" x2="1824" y1="85" y2="157" bpp="32" />
+   	<window x1="96" x2="1824" y1="158" y2="941" bpp="32" />
+   	<window x1="96" x2="1824" y1="942" y2="1009" bpp="32" />
 		
 		<image   x1="96" x2="1824" y1="85"  y2="157" path="images/top.png"/>
 		<text x1="1350" x2="1680" y1="107" y2="135"  color="TextButton" align="left" font="VDRSymbols Sans:Book@27">{DateTime:%A %d.%m.%y}</text>
@@ -14,8 +14,7 @@
 			
 <!--MAINMENU-BEGIN-->
 		<list  x1="150" x2="1410" y1="175" y2="912" condition="equal({MenuTitle:clean},'VDR')">
-<!--SMALLHEIGHT-->			<item height="61"/>
-<!--DEFAULTHEIGHT-->			<item height="67"/>
+			<item height="67"/>
 			<image x1="0" x2="576" y1="4" y2="60" condition="{MenuItem}"  alpha="240" path="images/menuGlassBG.png"/>
 			<image x1="0" x2="576" y1="4" y2="60" condition="{MenuGroup}"   alpha="240" path="images/menuGlassBG.png"/>
 			<image x1="0" x2="576" y1="4" y2="60" condition="{IsMenuCurrent}"  path="images/menuGlassBGLight.png" />
@@ -25,24 +24,24 @@
 			<ellipse x1="566" x2="576" y1="50" y2="60" arc="-4" color="Background"/>
 			
 			
-<!--DEFAULTMENUFONTMARQUEE-->		<marquee x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuGroup}</marquee>
-<!--DEFAULTMENUFONTMARQUEE-->		<marquee x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuItem}</marquee>		
-<!--DEFAULTMENUFONTMARQUEE-->		<marquee x1="10" x2="566" y1="10" y2="49" color="Black" align="left" font="VDRSymbols Sans:Bold@36">{MenuCurrent}</marquee>
-<!--DEFAULTMENUFONTNOMARQUEE-->		<text x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuGroup}</text>
-<!--DEFAULTMENUFONTNOMARQUEE-->		<text x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuItem}</text>		
-<!--DEFAULTMENUFONTNOMARQUEE-->		<text x1="15" x2="556" y1="10" y2="49" color="Black" align="left" font="VDRSymbols Sans:Bold@36">{MenuCurrent}</text>
-<!--SMALLMENUFONTMARQUEE-->		<marquee x1="20" x2="556" y1="14" y2="44" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuGroup}</marquee>
-<!--SMALLMENUFONTMARQUEE-->		<marquee x1="20" x2="556" y1="14" y2="44" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuItem}</marquee>		
-<!--SMALLMENUFONTMARQUEE-->		<marquee x1="15" x2="556" y1="11" y2="47" color="Black" align="left" font="VDRSymbols Sans:Bold@33">{MenuCurrent}</marquee>
-<!--SMALLMENUFONTNOMARQUEE-->		<text x1="20" x2="556" y1="14" y2="44" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuGroup}</text>
-<!--SMALLMENUFONTNOMARQUEE-->		<text x1="20" x2="556" y1="14" y2="44" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuItem}</text>		
-<!--SMALLMENUFONTNOMARQUEE-->		<text x1="15" x2="556" y1="11" y2="47" color="Black" align="left" font="VDRSymbols Sans:Bold@33">{MenuCurrent}</text>
-<!--LARGEMENUFONTMARQUEE-->		<marquee x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuGroup}</marquee>
-<!--LARGEMENUFONTMARQUEE-->		<marquee x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuItem}</marquee>		
-<!--LARGEMENUFONTMARQUEE-->		<marquee x1="15" x2="556" y1="8" y2="50" color="Black" align="left" font="VDRSymbols Sans:Bold@39">{MenuCurrent}</marquee>
-<!--LARGEMENUFONTNOMARQUEE-->		<text x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuGroup}</text>
-<!--LARGEMENUFONTNOMARQUEE-->		<text x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuItem}</text>		
-<!--LARGEMENUFONTNOMARQUEE-->		<text x1="15" x2="556" y1="8" y2="50" color="Black" align="left" font="VDRSymbols Sans:Bold@39">{MenuCurrent}</text>
+		<marquee condition="and(equal({SkinOption:MenuFont},'default'),{SkinOption:Marquee})" x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuGroup}</marquee>
+		<marquee condition="and(equal({SkinOption:MenuFont},'default'),{SkinOption:Marquee})" x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuItem}</marquee>		
+		<marquee condition="and(equal({SkinOption:MenuFont},'default'),{SkinOption:Marquee})" x1="10" x2="566" y1="10" y2="49" color="Black" align="left" font="VDRSymbols Sans:Bold@36">{MenuCurrent}</marquee>
+		<text condition="and(equal({SkinOption:MenuFont},'default'),not({SkinOption:Marquee}))" x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuGroup}</text>
+		<text condition="and(equal({SkinOption:MenuFont},'default'),not({SkinOption:Marquee}))" x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuItem}</text>		
+		<text condition="and(equal({SkinOption:MenuFont},'default'),not({SkinOption:Marquee}))" x1="15" x2="556" y1="10" y2="49" color="Black" align="left" font="VDRSymbols Sans:Bold@36">{MenuCurrent}</text>
+		<marquee condition="and(equal({SkinOption:MenuFont},'small'),{SkinOption:Marquee})" x1="20" x2="556" y1="14" y2="44" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuGroup}</marquee>
+		<marquee condition="and(equal({SkinOption:MenuFont},'small'),{SkinOption:Marquee})" x1="20" x2="556" y1="14" y2="44" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuItem}</marquee>		
+		<marquee condition="and(equal({SkinOption:MenuFont},'small'),{SkinOption:Marquee})" x1="15" x2="556" y1="11" y2="47" color="Black" align="left" font="VDRSymbols Sans:Bold@33">{MenuCurrent}</marquee>
+		<text condition="and(equal({SkinOption:MenuFont},'small'),not({SkinOption:Marquee}))" x1="20" x2="556" y1="14" y2="44" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuGroup}</text>
+		<text condition="and(equal({SkinOption:MenuFont},'small'),not({SkinOption:Marquee}))" x1="20" x2="556" y1="14" y2="44" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuItem}</text>		
+		<text condition="and(equal({SkinOption:MenuFont},'small'),not({SkinOption:Marquee}))" x1="15" x2="556" y1="11" y2="47" color="Black" align="left" font="VDRSymbols Sans:Bold@33">{MenuCurrent}</text>
+		<marquee condition="and(equal({SkinOption:MenuFont},'large'),{SkinOption:Marquee})" x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuGroup}</marquee>
+		<marquee condition="and(equal({SkinOption:MenuFont},'large'),{SkinOption:Marquee})" x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuItem}</marquee>		
+		<marquee condition="and(equal({SkinOption:MenuFont},'large'),{SkinOption:Marquee})" x1="15" x2="556" y1="8" y2="50" color="Black" align="left" font="VDRSymbols Sans:Bold@39">{MenuCurrent}</marquee>
+		<text condition="and(equal({SkinOption:MenuFont},'large'),not({SkinOption:Marquee}))" x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuGroup}</text>
+		<text condition="and(equal({SkinOption:MenuFont},'large'),not({SkinOption:Marquee}))" x1="20" x2="556" y1="11" y2="47" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuItem}</text>		
+		<text condition="and(equal({SkinOption:MenuFont},'large'),not({SkinOption:Marquee}))" x1="15" x2="556" y1="8" y2="50" color="Black" align="left" font="VDRSymbols Sans:Bold@39">{MenuCurrent}</text>
 		</list>	
 		
 	<block condition="equal({MenuTitle:clean},'VDR')">
@@ -53,53 +52,53 @@
 <!--SCROLLARROWS-->		<image x1="739"  x2="756"  y1="195"  y2="210" colors="32" condition="{CanScrollUp}"  path="images/arrow2Up.png" />
 <!--SCROLLARROWS-->		<image x1="739"  x2="756"  y1="875"  y2="890" colors="32" condition="{CanScrollDown}"  path="images/arrow2Down.png" />
 			
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/dummy.png"  alpha="240" condition="{MenuCurrent:clean}"/>	
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/channels2.png"  alpha="240" condition="equal({MenuCurrent:clean},trans('Channels'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/timer2.png"  alpha="240" condition="equal({MenuCurrent:clean},trans('Timers'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/schedule.png"  alpha="240" condition="equal({MenuCurrent:clean},trans('Schedule'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/setup.png"  alpha="240" condition="equal({MenuCurrent:clean},trans('Setup'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/commands.png"  alpha="240" condition="equal({MenuCurrent:clean},trans('Commands'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/recordings.png"  alpha="240" condition="equal({MenuCurrent:clean},trans('Recordings'))"/>
-<!--MENULOGOS-->
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/sysinfo.png"  alpha="240" condition="equal({MenuCurrent:clean},plugin('systeminfo'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/burn.png"  alpha="240" condition="equal({MenuCurrent:clean},plugin('burn'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/music.png"  alpha="240" condition="equal({MenuCurrent:clean},plugin('music'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/cdplayer.png"  alpha="240" condition="equal({MenuCurrent:clean},plugin('cdplayer'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/epgsearch2.png"  alpha="240" condition="equal({MenuCurrent:clean},plugin('epgsearch'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/epgsearch2.png"  alpha="240" condition="equal({MenuCurrent:clean},plugin('epgsearchonly'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/epgsearch2.png"  alpha="240" condition="equal({MenuCurrent:clean},plugin('quickepgsearch'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/conflictcheck2.png"  alpha="240" condition="equal({MenuCurrent:clean},plugin('conflictcheckonly'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/channels2.png"  alpha="240" condition="equal({MenuCurrent:clean},plugin('femon'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/sudoku.png"  alpha="240" condition="equal({MenuCurrent:clean},plugin('sudoku'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/schedule.png"  alpha="240" condition="equal({MenuCurrent:clean},plugin('tvonscreen'))"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/playback_stop.png"  alpha="240" condition="equal({MenuCurrent:clean},'Wiedergabe beenden')"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/dummy.png"  alpha="240" condition="and({SkinOption:MenuLogos},{MenuCurrent:clean})"/>	
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/channels2.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},trans('Channels')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/timer2.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},trans('Timers')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/schedule.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},trans('Schedule')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/setup.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},trans('Setup')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/commands.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},trans('Commands')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/recordings.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},trans('Recordings')))"/>
 
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/usbumount2.png"  alpha="240" condition="equal({MenuCurrent:clean},'USB Massenspeicher sicher entfernen')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/restart.png"  alpha="240" condition="equal({MenuCurrent:clean},'Videodir aktualisieren')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/restart.png"  alpha="240" condition="equal({MenuCurrent:clean},'VDR neu starten')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/restart.png"  alpha="240" condition="equal({MenuCurrent:clean},'Rechner neu starten')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/shutdown.png"  alpha="240" condition="equal({MenuCurrent:clean},'System herunterfahren')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/vlc.png"  alpha="240" condition="equal({MenuCurrent:clean},'VLC-Media-Player')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/commands.png"  alpha="240" condition="equal({MenuCurrent:clean},'Xterm')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/browser.png"  alpha="240" condition="equal({MenuCurrent:clean},'Internet')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/browser.png"  alpha="240" condition="equal({MenuCurrent:clean},'Web')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/youtube.png"  alpha="240" condition="equal({MenuCurrent:clean},'You-Tube')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/system.png"  alpha="240" condition="equal({MenuCurrent:clean},'System')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/commands.png"  alpha="240" condition="equal({MenuCurrent:clean},'Dienstprogramme')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/games.png"  alpha="240" condition="equal({MenuCurrent:clean},'Spiele')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/apps.png"  alpha="240" condition="equal({MenuCurrent:clean},'Applikationen')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/video.png"  alpha="240" condition="equal({MenuCurrent:clean},'Video')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/timer2.png"  alpha="240" condition="equal({MenuCurrent:clean},'Timer')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/system.png"  alpha="240" condition="equal({MenuCurrent:clean},'System')"/>
-<!--MENULOGOS-->		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/media.png"  alpha="240" condition="equal({MenuCurrent:clean},'Medien')"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/sysinfo.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},plugin('systeminfo')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/burn.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},plugin('burn')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/music.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},plugin('music')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/cdplayer.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},plugin('cdplayer')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/epgsearch2.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},plugin('epgsearch')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/epgsearch2.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},plugin('epgsearchonly')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/epgsearch2.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},plugin('quickepgsearch')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/conflictcheck2.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},plugin('conflictcheckonly')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/channels2.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},plugin('femon')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/sudoku.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},plugin('sudoku')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/schedule.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},plugin('tvonscreen')))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/playback_stop.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'Wiedergabe beenden'))"/>
 
-
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/usbumount2.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'USB Massenspeicher sicher entfernen'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/restart.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'Videodir aktualisieren'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/restart.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'VDR neu starten'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/restart.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'Rechner neu starten'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/shutdown.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'System herunterfahren'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/vlc.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'VLC-Media-Player'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/commands.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'Xterm'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/browser.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'Internet'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/browser.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'Web'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/youtube.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'You-Tube'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/system.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'System'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/commands.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'Dienstprogramme'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/games.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'Spiele'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/apps.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'Applikationen'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/video.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'Video'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/timer2.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'Timer'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/system.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'System'))"/>
+		<image x1="1581" x2="1781" y1="178" y2="416" colors="128" path="menulogos/media.png"  alpha="240" condition="and({SkinOption:MenuLogos},equal({MenuCurrent:clean},'Medien'))"/>
 
 
-<!--MENULOGOS-->		<ellipse x1="1581" x2="1593" y1="178" y2="190" arc="-2" color="BackgroundLight"/>
-<!--MENULOGOS-->		<ellipse x1="1581" x2="1593" y1="404" y2="416" arc="-3" color="BackgroundLight"/>
-<!--MENULOGOS-->		<ellipse x1="1769" x2="1781" y1="178" y2="190" arc="-1" color="BackgroundLight"/>
-<!--MENULOGOS-->		<ellipse x1="1769" x2="1781" y1="404" y2="416" arc="-4" color="BackgroundLight"/>
+
+
+		<ellipse condition="{SkinOption:MenuLogos}" x1="1581" x2="1593" y1="178" y2="190" arc="-2" color="BackgroundLight"/>
+		<ellipse condition="{SkinOption:MenuLogos}" x1="1581" x2="1593" y1="404" y2="416" arc="-3" color="BackgroundLight"/>
+		<ellipse condition="{SkinOption:MenuLogos}" x1="1769" x2="1781" y1="178" y2="190" arc="-1" color="BackgroundLight"/>
+		<ellipse condition="{SkinOption:MenuLogos}" x1="1769" x2="1781" y1="404" y2="416" arc="-4" color="BackgroundLight"/>
 		
 
 	
@@ -133,51 +132,53 @@
 		<text x1="160" x2="350" y1="106" y2="136"  align="left" color="TextButton" font="VDRSymbols Sans:Book@30">VDR - {VdrVersion}</text>
 		<text x1="770" x2="1300" y1="106" y2="136"  align="left" color="TextButton" font="VDRSymbols Sans:Book@27">{DiskUsage}</text>
 
-<!--TIMER-INFO_MAIN-MENU-->		<block condition="and({CurrentEventsTitle1},not({CurrentEventsTitle2}))">
-<!--TIMER-INFO_MAIN-MENU-->			<image x="1140"  y="760" colors="128" alpha="245" path="images/timer1Long.png"/>
-<!--TIMER-INFO_MAIN-MENU-->			<ellipse x1="1140" x2="1152" y1="760" y2="772" arc="-2" color="BackgroundLight"/>
-<!--TIMER-INFO_MAIN-MENU-->			<ellipse x1="1140" x2="1152" y1="876" y2="888" arc="-3" color="BackgroundLight"/>
-<!--TIMER-INFO_MAIN-MENU-->			<ellipse x1="1768" x2="1780" y1="760" y2="772" arc="-1" color="BackgroundLight"/>
-<!--TIMER-INFO_MAIN-MENU-->			<ellipse x1="1768" x2="1780" y1="876" y2="888" arc="-4" color="BackgroundLight"/>
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="770" y2="802" color="TextButton" font="VDRSymbols Sans:Book@32">Timer:</text>
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="815" y2="839" condition="not({CurrentEventsIsRecording1})" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle1}</text>
-<!--TIMER-INFO_MAIN-MENU-->			<blink x1="1160" x2="1760" y1="815" y2="839" delay="1000" condition="{CurrentEventsIsRecording1}" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle1}</blink>
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="850" y2="880" color="TextButton" font="VDRSymbols Sans:Book@22">{CurrentEventsStartDateTime1:%a %d.%m  %H\:%M}   {CurrentEventsChannelName1}</text>			
-<!--TIMER-INFO_MAIN-MENU-->		</block>
-<!--TIMER-INFO_MAIN-MENU-->		<block condition="and({CurrentEventsTitle1},{CurrentEventsTitle2},not({CurrentEventsTitle3}))">
-<!--TIMER-INFO_MAIN-MENU-->			<image x="1140"  y="692" colors="128" alpha="245" path="images/timer2Long.png"/>
-<!--TIMER-INFO_MAIN-MENU-->			<ellipse x1="1140" x2="1152" y1="692" y2="704" arc="-2" color="BackgroundLight"/>
-<!--TIMER-INFO_MAIN-MENU-->			<ellipse x1="1140" x2="1152" y1="876" y2="888" arc="-3" color="BackgroundLight"/>
-<!--TIMER-INFO_MAIN-MENU-->			<ellipse x1="1768" x2="1780" y1="692" y2="704" arc="-1" color="BackgroundLight"/>
-<!--TIMER-INFO_MAIN-MENU-->			<ellipse x1="1768" x2="1780" y1="876" y2="888" arc="-4" color="BackgroundLight"/>
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="700" y2="732" color="TextButton" font="VDRSymbols Sans:Book@32">Timer:</text>
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="745" y2="769" condition="not({CurrentEventsIsRecording1})" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle1}</text>
-<!--TIMER-INFO_MAIN-MENU-->			<blink x1="1160" x2="1760" y1="745" y2="769" delay="1000" condition="{CurrentEventsIsRecording1}" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle1}</blink>
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="780" y2="810" color="TextButton" font="VDRSymbols Sans:Book@22">{CurrentEventsStartDateTime1:%a\ %d.%m\ \ %H\:%M}   {CurrentEventsChannelName1}</text>
-<!--TIMER-INFO_MAIN-MENU-->			
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="815" y2="839" condition="not({CurrentEventsIsRecording2})" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle2}</text>
-<!--TIMER-INFO_MAIN-MENU-->			<blink x1="1160" x2="1760" y1="815" y2="839" delay="1000" condition="{CurrentEventsIsRecording2}" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle2}</blink>
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="850" y2="880" color="TextButton" font="VDRSymbols Sans:Book@22">{CurrentEventsStartDateTime2:%a\ %d.%m\ \ %H\:%M}   {CurrentEventsChannelName2}</text>	
-<!--TIMER-INFO_MAIN-MENU-->		</block>	
-<!--TIMER-INFO_MAIN-MENU-->		<block condition="and({CurrentEventsTitle1},{CurrentEventsTitle2},{CurrentEventsTitle3})">
-<!--TIMER-INFO_MAIN-MENU-->			<image x="1140"  y="624" colors="128" alpha="245" path="images/timer3Long.png"/>
-<!--TIMER-INFO_MAIN-MENU-->			<ellipse x1="1140" x2="1152" y1="624" y2="636" arc="-2" color="BackgroundLight"/>
-<!--TIMER-INFO_MAIN-MENU-->			<ellipse x1="1140" x2="1152" y1="876" y2="888" arc="-3" color="BackgroundLight"/>
-<!--TIMER-INFO_MAIN-MENU-->			<ellipse x1="1768" x2="1780" y1="624" y2="636" arc="-1" color="BackgroundLight"/>
-<!--TIMER-INFO_MAIN-MENU-->			<ellipse x1="1768" x2="1780" y1="876" y2="888" arc="-4" color="BackgroundLight"/>
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="630" y2="662" color="TextButton" font="VDRSymbols Sans:Book@32">Timer:</text>
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="675" y2="699" condition="not({CurrentEventsIsRecording1})" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle1}</text>
-<!--TIMER-INFO_MAIN-MENU-->			<blink x1="1160" x2="1760" y1="675" y2="699" delay="1000" condition="{CurrentEventsIsRecording1}" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle1}</blink>
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="710" y2="740" color="TextButton" font="VDRSymbols Sans:Book@22">{CurrentEventsStartDateTime1:%a\ %d.%m\ \ %H\:%M}   {CurrentEventsChannelName1}</text>
-<!--TIMER-INFO_MAIN-MENU-->			
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="745" y2="769" condition="not({CurrentEventsIsRecording2})" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle2}</text>
-<!--TIMER-INFO_MAIN-MENU-->			<blink x1="1160" x2="1760" y1="745" y2="769" delay="1000" condition="{CurrentEventsIsRecording2}" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle2}</blink>
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="780" y2="810" color="TextButton" font="VDRSymbols Sans:Book@22">{CurrentEventsStartDateTime2:%a\ %d.%m\ \ %H\:%M}   {CurrentEventsChannelName2}</text>
-<!--TIMER-INFO_MAIN-MENU-->			
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="815" y2="839" condition="not({CurrentEventsIsRecording3})" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle3}</text>
-<!--TIMER-INFO_MAIN-MENU-->			<blink x1="1160" x2="1760" y1="815" y2="839" delay="1000" condition="{CurrentEventsIsRecording3}" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle3}</blink>
-<!--TIMER-INFO_MAIN-MENU-->			<text x1="1160" x2="1760" y1="850" y2="880" color="TextButton" font="VDRSymbols Sans:Book@22">{CurrentEventsStartDateTime3:%a\ %d.%m\ \ %H\:%M}   {CurrentEventsChannelName3}</text>	
-<!--TIMER-INFO_MAIN-MENU-->		</block>		
+		<block condition="{SkinOption:TimerInfo}">
+		<block condition="and({CurrentEventsTitle1},not({CurrentEventsTitle2}))">
+			<image x1="1140" x2="1780"  y1="760" y2="888" colors="128" alpha="245" path="images/timer1Long.png"/>
+			<ellipse x1="1140" x2="1152" y1="760" y2="772" arc="-2" color="BackgroundLight"/>
+			<ellipse x1="1140" x2="1152" y1="876" y2="888" arc="-3" color="BackgroundLight"/>
+			<ellipse x1="1768" x2="1780" y1="760" y2="772" arc="-1" color="BackgroundLight"/>
+			<ellipse x1="1768" x2="1780" y1="876" y2="888" arc="-4" color="BackgroundLight"/>
+			<text x1="1160" x2="1760" y1="770" y2="802" color="TextButton" font="VDRSymbols Sans:Book@32">Timer:</text>
+			<text x1="1160" x2="1760" y1="815" y2="839" condition="not({CurrentEventsIsRecording1})" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle1}</text>
+			<blink x1="1160" x2="1760" y1="815" y2="839" delay="1000" condition="{CurrentEventsIsRecording1}" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle1}</blink>
+			<text x1="1160" x2="1760" y1="850" y2="880" color="TextButton" font="VDRSymbols Sans:Book@22">{CurrentEventsStartDateTime1:%a %d.%m  %H\:%M}   {CurrentEventsChannelName1}</text>			
+		</block>
+		<block condition="and({CurrentEventsTitle1},{CurrentEventsTitle2},not({CurrentEventsTitle3}))">
+			<image x1="1140" x2="1780"  y1="692" y2="888" colors="128" alpha="245" path="images/timer2Long.png"/>
+			<ellipse x1="1140" x2="1152" y1="692" y2="704" arc="-2" color="BackgroundLight"/>
+			<ellipse x1="1140" x2="1152" y1="876" y2="888" arc="-3" color="BackgroundLight"/>
+			<ellipse x1="1768" x2="1780" y1="692" y2="704" arc="-1" color="BackgroundLight"/>
+			<ellipse x1="1768" x2="1780" y1="876" y2="888" arc="-4" color="BackgroundLight"/>
+			<text x1="1160" x2="1760" y1="700" y2="732" color="TextButton" font="VDRSymbols Sans:Book@32">Timer:</text>
+			<text x1="1160" x2="1760" y1="745" y2="769" condition="not({CurrentEventsIsRecording1})" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle1}</text>
+			<blink x1="1160" x2="1760" y1="745" y2="769" delay="1000" condition="{CurrentEventsIsRecording1}" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle1}</blink>
+			<text x1="1160" x2="1760" y1="780" y2="810" color="TextButton" font="VDRSymbols Sans:Book@22">{CurrentEventsStartDateTime1:%a\ %d.%m\ \ %H\:%M}   {CurrentEventsChannelName1}</text>
+			
+			<text x1="1160" x2="1760" y1="815" y2="839" condition="not({CurrentEventsIsRecording2})" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle2}</text>
+			<blink x1="1160" x2="1760" y1="815" y2="839" delay="1000" condition="{CurrentEventsIsRecording2}" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle2}</blink>
+			<text x1="1160" x2="1760" y1="850" y2="880" color="TextButton" font="VDRSymbols Sans:Book@22">{CurrentEventsStartDateTime2:%a\ %d.%m\ \ %H\:%M}   {CurrentEventsChannelName2}</text>	
+		</block>	
+		<block condition="and({CurrentEventsTitle1},{CurrentEventsTitle2},{CurrentEventsTitle3})">
+			<image x1="1140" x2="1780"  y1="624" y2="888" colors="128" alpha="245" path="images/timer3Long.png"/>
+			<ellipse x1="1140" x2="1152" y1="624" y2="636" arc="-2" color="BackgroundLight"/>
+			<ellipse x1="1140" x2="1152" y1="876" y2="888" arc="-3" color="BackgroundLight"/>
+			<ellipse x1="1768" x2="1780" y1="624" y2="636" arc="-1" color="BackgroundLight"/>
+			<ellipse x1="1768" x2="1780" y1="876" y2="888" arc="-4" color="BackgroundLight"/>
+			<text x1="1160" x2="1760" y1="630" y2="662" color="TextButton" font="VDRSymbols Sans:Book@32">Timer:</text>
+			<text x1="1160" x2="1760" y1="675" y2="699" condition="not({CurrentEventsIsRecording1})" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle1}</text>
+			<blink x1="1160" x2="1760" y1="675" y2="699" delay="1000" condition="{CurrentEventsIsRecording1}" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle1}</blink>
+			<text x1="1160" x2="1760" y1="710" y2="740" color="TextButton" font="VDRSymbols Sans:Book@22">{CurrentEventsStartDateTime1:%a\ %d.%m\ \ %H\:%M}   {CurrentEventsChannelName1}</text>
+			
+			<text x1="1160" x2="1760" y1="745" y2="769" condition="not({CurrentEventsIsRecording2})" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle2}</text>
+			<blink x1="1160" x2="1760" y1="745" y2="769" delay="1000" condition="{CurrentEventsIsRecording2}" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle2}</blink>
+			<text x1="1160" x2="1760" y1="780" y2="810" color="TextButton" font="VDRSymbols Sans:Book@22">{CurrentEventsStartDateTime2:%a\ %d.%m\ \ %H\:%M}   {CurrentEventsChannelName2}</text>
+			
+			<text x1="1160" x2="1760" y1="815" y2="839" condition="not({CurrentEventsIsRecording3})" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle3}</text>
+			<blink x1="1160" x2="1760" y1="815" y2="839" delay="1000" condition="{CurrentEventsIsRecording3}" color="TextButton" font="VDRSymbols Sans:Book@24">{CurrentEventsTitle3}</blink>
+			<text x1="1160" x2="1760" y1="850" y2="880" color="TextButton" font="VDRSymbols Sans:Book@22">{CurrentEventsStartDateTime3:%a\ %d.%m\ \ %H\:%M}   {CurrentEventsChannelName3}</text>	
+		</block>		
+		</block>
 	</block>
 
 <!--MAIN-MENU END-->
@@ -197,8 +198,7 @@
 		<image x1="1823" x2="1825" y1="157" y2="942"  path="images/divider.png" />
 		
 		<list  x1="150" x2="1770" y1="175" y2="912"  >
-<!--SMALLHEIGHT-->			<item height="61"/>
-<!--DEFAULTHEIGHT-->			<item height="67"/>
+			<item height="67"/>
 			<rectangle x1="20" x2="1600" y1="68" y2="69" color="BackgroundLight"/>
 			<image x1="0" x2="1620" y1="4" y2="68"  condition="{IsMenuCurrent}"  path="images/menuCurrentLong.png" />
 			
@@ -206,24 +206,24 @@
 			<ellipse x1="0" x2="10" y1="58" y2="68"  condition="{IsMenuCurrent}" arc="-3" color="Background"/>
 			<ellipse x1="1610" x2="1620" y1="4" y2="14"  condition="{IsMenuCurrent}" arc="-1" color="Background"/>
 			<ellipse x1="1610" x2="1620" y1="58" y2="68"  condition="{IsMenuCurrent}" arc="-4" color="Background"/>
-<!--DEFAULTMENUFONTMARQUEE-->		<marquee x1="35" x2="1576" y1="15" y2="48" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuGroup}</marquee>
-<!--DEFAULTMENUFONTMARQUEE-->		<marquee x1="35" x2="1576" y1="15" y2="48" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuItem}</marquee>		
-<!--DEFAULTMENUFONTMARQUEE-->		<marquee x1="25" x2="1576" y1="14" y2="50" color="Black" align="left" font="VDRSymbols Sans:Bold@36">{MenuCurrent}</marquee>
-<!--DEFAULTMENUFONTNOMARQUEE-->		<text x1="35" x2="1576" y1="15" y2="48" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuGroup}</text>
-<!--DEFAULTMENUFONTNOMARQUEE-->		<text x1="35" x2="1576" y1="15" y2="48" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuItem}</text>		
-<!--DEFAULTMENUFONTNOMARQUEE-->		<text x1="25" x2="1576" y1="14" y2="50" color="Black" align="left" font="VDRSymbols Sans:Bold@36">{MenuCurrent}</text>
-<!--SMALLMENUFONTMARQUEE-->		<marquee x1="35" x2="1576" y1="16" y2="46" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuGroup}</marquee>
-<!--SMALLMENUFONTMARQUEE-->		<marquee x1="35" x2="1576" y1="16" y2="46" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuItem}</marquee>		
-<!--SMALLMENUFONTMARQUEE-->		<marquee x1="30" x2="1571" y1="15" y2="48" color="Black" align="left" font="VDRSymbols Sans:Bold@33">{MenuCurrent}</marquee>
-<!--SMALLMENUFONTNOMARQUEE-->		<text x1="35" x2="1576" y1="16" y2="46" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuGroup}</text>
-<!--SMALLMENUFONTNOMARQUEE-->		<text x1="35" x2="1576" y1="16" y2="46" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuItem}</text>		
-<!--SMALLMENUFONTNOMARQUEE-->		<text x1="30" x2="1571" y1="15" y2="48" color="Black" align="left" font="VDRSymbols Sans:Bold@33">{MenuCurrent}</text>
-<!--LARGEMENUFONTMARQUEE-->		<marquee x1="35" x2="1576" y1="14" y2="50" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuGroup}</marquee>
-<!--LARGEMENUFONTMARQUEE-->		<marquee x1="35" x2="1576" y1="14" y2="50" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuItem}</marquee>		
-<!--LARGEMENUFONTMARQUEE-->		<marquee x1="30" x2="1571" y1="13" y2="52" color="Black" align="left" font="VDRSymbols Sans:Bold@39">{MenuCurrent}</marquee>
-<!--LARGEMENUFONTNOMARQUEE-->		<text x1="35" x2="1576" y1="14" y2="50" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuGroup}</text>
-<!--LARGEMENUFONTNOMARQUEE-->		<text x1="35" x2="1576" y1="14" y2="50" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuItem}</text>		
-<!--LARGEMENUFONTNOMARQUEE-->		<text x1="30" x2="1571" y1="13" y2="52" color="Black" align="left" font="VDRSymbols Sans:Bold@39">{MenuCurrent}</text>
+		<marquee condition="and(equal({SkinOption:MenuFont},'default'),{SkinOption:Marquee})" x1="35" x2="1576" y1="15" y2="48" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuGroup}</marquee>
+		<marquee condition="and(equal({SkinOption:MenuFont},'default'),{SkinOption:Marquee})" x1="35" x2="1576" y1="15" y2="48" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuItem}</marquee>		
+		<marquee condition="and(equal({SkinOption:MenuFont},'default'),{SkinOption:Marquee})" x1="25" x2="1576" y1="14" y2="50" color="Black" align="left" font="VDRSymbols Sans:Bold@36">{MenuCurrent}</marquee>
+		<text condition="and(equal({SkinOption:MenuFont},'default'),not({SkinOption:Marquee}))" x1="35" x2="1576" y1="15" y2="48" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuGroup}</text>
+		<text condition="and(equal({SkinOption:MenuFont},'default'),not({SkinOption:Marquee}))" x1="35" x2="1576" y1="15" y2="48" color="TextButton" font="VDRSymbols Sans:Book@33">{MenuItem}</text>		
+		<text condition="and(equal({SkinOption:MenuFont},'default'),not({SkinOption:Marquee}))" x1="25" x2="1576" y1="14" y2="50" color="Black" align="left" font="VDRSymbols Sans:Bold@36">{MenuCurrent}</text>
+		<marquee condition="and(equal({SkinOption:MenuFont},'small'),{SkinOption:Marquee})" x1="35" x2="1576" y1="16" y2="46" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuGroup}</marquee>
+		<marquee condition="and(equal({SkinOption:MenuFont},'small'),{SkinOption:Marquee})" x1="35" x2="1576" y1="16" y2="46" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuItem}</marquee>		
+		<marquee condition="and(equal({SkinOption:MenuFont},'small'),{SkinOption:Marquee})" x1="30" x2="1571" y1="15" y2="48" color="Black" align="left" font="VDRSymbols Sans:Bold@33">{MenuCurrent}</marquee>
+		<text condition="and(equal({SkinOption:MenuFont},'small'),not({SkinOption:Marquee}))" x1="35" x2="1576" y1="16" y2="46" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuGroup}</text>
+		<text condition="and(equal({SkinOption:MenuFont},'small'),not({SkinOption:Marquee}))" x1="35" x2="1576" y1="16" y2="46" color="TextButton" font="VDRSymbols Sans:Book@30">{MenuItem}</text>		
+		<text condition="and(equal({SkinOption:MenuFont},'small'),not({SkinOption:Marquee}))" x1="30" x2="1571" y1="15" y2="48" color="Black" align="left" font="VDRSymbols Sans:Bold@33">{MenuCurrent}</text>
+		<marquee condition="and(equal({SkinOption:MenuFont},'large'),{SkinOption:Marquee})" x1="35" x2="1576" y1="14" y2="50" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuGroup}</marquee>
+		<marquee condition="and(equal({SkinOption:MenuFont},'large'),{SkinOption:Marquee})" x1="35" x2="1576" y1="14" y2="50" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuItem}</marquee>		
+		<marquee condition="and(equal({SkinOption:MenuFont},'large'),{SkinOption:Marquee})" x1="30" x2="1571" y1="13" y2="52" color="Black" align="left" font="VDRSymbols Sans:Bold@39">{MenuCurrent}</marquee>
+		<text condition="and(equal({SkinOption:MenuFont},'large'),not({SkinOption:Marquee}))" x1="35" x2="1576" y1="14" y2="50" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuGroup}</text>
+		<text condition="and(equal({SkinOption:MenuFont},'large'),not({SkinOption:Marquee}))" x1="35" x2="1576" y1="14" y2="50" color="TextButton" font="VDRSymbols Sans:Book@36">{MenuItem}</text>		
+		<text condition="and(equal({SkinOption:MenuFont},'large'),not({SkinOption:Marquee}))" x1="30" x2="1571" y1="13" y2="52" color="Black" align="left" font="VDRSymbols Sans:Bold@39">{MenuCurrent}</text>
 		</list>
 				
 		<image x1="96" x2="1824"  y1="942" y2="1009" colors="128"  path="images/buttonsLong.png"  /> 
@@ -277,7 +277,7 @@
 				<text x1="175" x2="1450" y1="330" y2="360" color="TextDescr" font="VDRSymbols Sans:Book@27">{PresentShortText}</text>			
 				<scrolltext x1="175" x2="1720" y1="410" y2="890" color="TextDescr" font="Osd">{PresentDescription}</scrolltext>
 	
-<!--EPGIMAGES-->		<image x1="1460" x2="1780" y1="165" y2="404" condition="file('EPGIMAGESPATH/{PresentEventID}.png')" colors="64" path="EPGIMAGESPATH/{PresentEventID}.png"/>
+		<image x1="1460" x2="1780" y1="165" y2="404" condition="and({SkinOption:EpgImages},{PresentPoster})" path="{PresentPoster}"/>
 
 			</block>
 		</block>

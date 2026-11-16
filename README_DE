@@ -1,0 +1,88 @@
+#
+#    README für den Skin anthra_OSt für text2skin
+#
+#    http://anthra.de/anthra-skins/
+#    Copyright (C) 2010 - 2019  Tomas Saxer <tsaxer@gmx.de>
+#    Copyright (C) 2026  Frank Neumann <fnu@vdr-portal.de> (Portierung auf text2skin 2.0)
+#
+#    Dieses Programm ist freie Software; Sie können es unter den Bedingungen der GNU General
+#    Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder
+#    modifizieren, entweder gemäß Version 2 der Lizenz oder (nach Ihrer Option) jeder späteren
+#    Version. Einzelheiten in der Datei COPYING.
+
+anthra_OSt
+==========
+
+anthra ist die dunkle, anthrazitfarbene Skin-Familie für text2skin, die Tomas
+Saxer ab 2010 im vdr-portal.de entworfen hat. anthra_OSt ist sein
+anthra_1920_OSt (Version 20190209), portiert auf text2skin 2.0; das Design
+bleibt seins. Es ist das schwebende Geschwister von anthra_FSt: Menü und
+Kanalinfo halten Abstand zum Bildschirmrand. Das Original liegt unter
+http://anthra.de/anthra-skins/.
+
+
+Voraussetzungen
+---------------
+
+text2skin ab 2.0 (Skin-Format 1.2). Ein Ausgabegerät mit True-Colour-OSD
+(z. B. softhddevice, vaapivideo); ohne fällt der Skin auf 256 Farben zurück.
+Die Schrift VDRSymbols Sans von Andreas Mair (Debian: vdrsymbols-ttf).
+
+
+Was anders ist als bei anthra_1920_OSt
+--------------------------------------
+
+- Der Skin hat einen neuen Namen, anthra_OSt. Beide Skins lassen sich
+  nebeneinander installieren, die Optionen werden im Setup-Menü neu gesetzt.
+- Keine Bauoptionen und keine Make.config mehr. Der Skin skaliert sich auf
+  die Größe des OSD (entworfen für 1920x1080, getestet mit 1280x720, 1920x1080
+  und 3840x2160); die Optionen werden zur Laufzeit im Setup-Menü von text2skin
+  gesetzt.
+- Die Menüzeilen sind 67 Pixel hoch (DEFAULTHEIGHT), die Variante mit 61
+  Pixeln ist nicht Teil der Portierung.
+- EPG-Bilder kommen von einem Scraper-Plugin (tvscraper, scraper2vdr) statt
+  aus einem Bilderordner.
+- Alle Fenster nutzen True Colour.
+
+
+Optionen
+--------
+
+Einstellungen -> Plugins -> text2skin -> „Optionen des Skins 'anthra_OSt'“:
+
+  Senderlogos                       rechts   (rechts, links, keine)
+  Pfad der Senderlogos              /var/lib/vdr/channellogos
+  Logos im Hauptmenü                ja
+  Schrift in Menüs                  normal   (normal, klein, groß)
+  Lauftext in Menüs                 nein
+  Timer-Info im Hauptmenü           ja
+  EPG-Bilder (Scraper)              ja
+
+Senderlogos werden als <Pfad>/<Sendername>.png oder <Pfad>/<Kanal-ID>.png
+gesucht.
+
+Die Themes (Einstellungen -> OSD -> Thema): darkamber, darkblue, darkorange,
+default, izeman, lightamber, lightblue, lightgrey, lightmaroon, white,
+yabluedefault, yabluelight.
+
+
+Installation
+------------
+
+  make
+  make install
+
+Die Pfade kommen aus vdr.pc, falls vorhanden (Skin: <configdir>/plugins/
+text2skin/anthra_OSt, Themes: <configdir>/themes, Übersetzungen: <locdir>),
+sonst /var/lib/vdr und /usr/share/locale. DESTDIR wird unterstützt.
+
+Die Skin-Datei anthra_OSt.skin wird aus xml/*.xml zusammengesetzt.
+
+
+Übersetzungen
+-------------
+
+Die Texte des Skins stammen aus Tomas Saxers Übersetzungen, Lautstärke und
+Stumm aus den VDR-Quellen. Die Optionen sind ins Deutsche, Spanische,
+Finnische, Französische, Italienische und Niederländische übersetzt, die
+übrigen Sprachen zeigen sie englisch.

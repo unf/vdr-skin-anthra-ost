@@ -1,5 +1,5 @@
 <display id="replayInfo">
-	<window x1="0" x2="1920" y1="730" y2="1080" bpp="8"/>		
+	<window x1="0" x2="1920" y1="730" y2="1080" bpp="32"/>		
 		
 <!--Progress-Bar-BEGIN-->    
 		<image   x1="96" x2="1824" y1="840"  y2="1004"   path="images/recbar.png"/>
