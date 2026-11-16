@@ -1,0 +1,18 @@
+vdr-skin-anthra-ost packaging
+=============================
+
+The repository follows the git-buildpackage layout:
+
+  debian/trixie   upstream source with the Debian packaging
+  upstream        the imported upstream tarballs
+  pristine-tar    data to recreate the orig tarballs
+
+The skin needs no build options, it is installed as it is to
+/var/lib/vdr/plugins/text2skin/anthra_OSt, its themes to /var/lib/vdr/themes.
+Relative paths of the skin options (e.g. ../liquid-logos4separator) are
+taken from that folder, so it is not a symlink into /usr/share.
+
+Build with git-buildpackage:
+
+  gbp clone <repository> && cd vdr-skin-anthra-ost
+  gbp buildpackage

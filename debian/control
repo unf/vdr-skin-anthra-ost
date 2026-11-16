@@ -1,0 +1,21 @@
+Source: vdr-skin-anthra-ost
+Section: video
+Priority: optional
+Maintainer: Frank Neumann <fnu@vdr-portal.de>
+Build-Depends: debhelper-compat (= 13), gettext
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Homepage: http://www.anthra.de/anthra-skins/
+
+Package: vdr-skin-anthra-ost
+Architecture: all
+Multi-Arch: foreign
+Depends: vdr-plugin-text2skin (>= 2.0.0~), fonts-vdrsymbols-ttf, ${misc:Depends}
+Description: anthra skin anthra_OSt for the VDR text2skin plugin
+ The dark anthra skin by Tomas Saxer (variant 1920 FSt) for the text2skin
+ plugin of VDR, ported to text2skin 2.0.
+ .
+ The skin scales itself to the size of the OSD. Its options (channel and
+ separator logos, menu logos and font, timer info, EPG and recording images
+ from scraper plugins, signal display, scroll indicator) are set in the setup
+ menu of text2skin.
